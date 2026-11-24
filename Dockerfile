@@ -20,7 +20,7 @@ RUN apt-get update \
     tcpdump \
     && rm -rf /var/lib/apt/lists/*
 
-# Usuarios sin privilegios para los ejercicios de permisos (A01, A06, A10)
+# Usuarios sin privilegios para los ejercicios de permisos (A06, A07, A10)
 RUN useradd -m -s /bin/bash alumno \
     && useradd -m -s /bin/bash docente
 

@@ -52,7 +52,7 @@ dentro del contenedor Docker provisto.
 ## Usuarios del contenedor
 
 Los ejercicios se ejecutan como `root`, pero la imagen incluye los usuarios sin
-privilegios `alumno` y `docente`, que se usan en A06 y A10 para mostrar controles
+privilegios `alumno` y `docente`, que se usan en A06, A07 y A10 para mostrar controles
 basados en permisos (por ejemplo, `su alumno -c "comando"`).
 
 >**Advertencia: todas las vulnerabilidades están intencionalmente activadas para fines educativos. Ejecutar sólo en entornos de laboratorio (contenedores o máquinas virtuales aisladas).**

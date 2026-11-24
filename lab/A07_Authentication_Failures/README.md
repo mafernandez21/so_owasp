@@ -1,11 +1,13 @@
 # A07:2025 - Authentication Failures
 
 **Objetivo:** mostrar un ataque de **enumeración de usuarios** seguido de **fuerza
-bruta** contra un servicio de inicio de sesión sin protecciones, y mitigarlo.
+bruta** contra un servicio de inicio de sesión sin protecciones, y mitigarlo; luego,
+repetir la fuerza bruta contra el inicio de sesión local de Linux (`su`) y mitigarla
+con el módulo PAM `pam_faillock`.
 
 **Conceptos:** autenticación, contraseñas débiles, enumeración de cuentas, limitación
 de intentos y bloqueo, almacenamiento seguro de contraseñas, registro de eventos de
-seguridad, fail2ban.
+seguridad, fail2ban, PAM y `pam_faillock`.
 
 ## Ejecución (dentro del contenedor)
 

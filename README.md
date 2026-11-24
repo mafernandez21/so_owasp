@@ -5,6 +5,10 @@ Ejercicios resueltos para el trabajo grupal sobre el
 un escenario vulnerable, su explotación y su mitigación, con scripts para ejecutar
 dentro del contenedor Docker provisto.
 
+> **Para el trabajo grupal:** estos laboratorios son un **punto de partida**. En la
+> demostración práctica cada grupo debe aportar algo propio (una variante del ataque,
+> otra mitigación o evidencia del antes y el después), según lo indicado en las consignas.
+
 | Carpeta | Categoría OWASP Top 10:2025 | Demostración |
 | --- | --- | --- |
 | `A01_Broken_Access_Control` | A01 Broken Access Control | IDOR: un usuario autenticado lee documentos de otro |

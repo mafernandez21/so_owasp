@@ -41,6 +41,40 @@ seguridad, fail2ban.
     ./stop_server.sh
     ```
 
+## Bloqueo de intentos en el sistema operativo (PAM)
+
+El mismo ataque de fuerza bruta se aplica al inicio de sesión local de Linux. Aquí se
+ataca `su alumno` y se mitiga con el módulo PAM `pam_faillock`, que bloquea la cuenta
+tras varios intentos fallidos. **Ejecutar como `root` dentro del contenedor.**
+
+1. Modo **vulnerable** (sin límite de intentos) y ataque desde otra cuenta
+
+    ```bash
+    ./pam_setup.sh
+    su docente -c "python3 pam_attack.py"
+    ```
+
+    El diccionario termina encontrando la contraseña débil de `alumno` (`sunshine`).
+
+1. Modo **mitigado** con `pam_faillock` y repetición del ataque
+
+    ```bash
+    ./pam_setup.sh --secure
+    su docente -c "python3 pam_attack.py"
+    faillock --user alumno
+    ```
+
+    La cuenta se bloquea tras 3 intentos fallidos y el ataque se detiene. Con
+    `faillock --user alumno` se ve el registro de fallos; incluso la contraseña
+    correcta queda rechazada ("The account is locked...") hasta que pasa el
+    `unlock_time` o se ejecuta `faillock --user alumno --reset`.
+
+1. Restaurar la configuración original de `su`
+
+    ```bash
+    ./pam_setup.sh
+    ```
+
 ## Qué observar
 
 * Un mensaje genérico ("Usuario o contraseña incorrectos") y un tiempo de respuesta
@@ -52,6 +86,6 @@ seguridad, fail2ban.
   los archivos de ejemplo en `fail2ban/`. En el contenedor no se ejecuta porque
   necesita privilegios de red (`--cap-add=NET_ADMIN`); queda como extensión.
 * El mismo principio se aplica en Linux al inicio de sesión local con el módulo PAM
-  `pam_faillock`.
+  `pam_faillock` (ver la sección *Bloqueo de intentos en el sistema operativo*).
 
 **Notas de seguridad:** ejecutar solo dentro del contenedor provisto para el laboratorio.

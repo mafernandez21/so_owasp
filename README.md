@@ -13,7 +13,7 @@ dentro del contenedor Docker provisto.
 | `A04_Cryptographic_Failures` | A04 Cryptographic Failures | Contraseñas en texto plano y MD5; bcrypt; captura de tráfico HTTP vs. HTTPS |
 | `A05_Injection` | A05 Injection | Inyección de comandos en Bash e inyección SQL |
 | `A06_Insecure_Design` | A06 Insecure Design | Sistema sin separación de roles; rediseño con usuarios, grupos y permisos |
-| `A07_Authentication_Failures` | A07 Authentication Failures | Enumeración de usuarios y fuerza bruta; bloqueo de intentos |
+| `A07_Authentication_Failures` | A07 Authentication Failures | Enumeración de usuarios y fuerza bruta; bloqueo de intentos en la aplicación y en el sistema operativo (`pam_faillock`) |
 | `A10_Mishandling_of_Exceptional_Conditions` | A10 Mishandling of Exceptional Conditions | Control de acceso que falla abierto y trazas de error expuestas |
 
 ## Instrucciones rápidas

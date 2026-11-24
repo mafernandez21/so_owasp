@@ -1,3 +1,17 @@
 *.pyc
 __pycache__/
 test
+# Archivos generados por los scripts del laboratorio
+*.pid
+*.log
+lab/*/www/
+lab/*/data/
+lab/*/labdata/
+lab/*/mirror/
+lab/*/descargas/
+lab/*/gnupg/
+lab/*/certs/
+lab/*/*.db
+lab/*/*.lock
+lab/*/*.csv
+*.key

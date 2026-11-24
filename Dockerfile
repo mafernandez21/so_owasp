@@ -1,20 +1,28 @@
-FROM ubuntu:22.04
+# Imagen del laboratorio OWASP Top 10:2025 - Sistemas Operativos (FACET - UNT)
+FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
-    && apt-get install -y \
-    build-essential \
+    && apt-get install -y --no-install-recommends \
+    apache2 \
     ca-certificates \
     curl \
-    git \
+    gnupg \
     iproute2 \
+    less \
+    nano \
     openssl \
+    procps \
     python3 \
-    python3-pip \
+    python3-bcrypt \
     sqlite3 \
-    && pip3 install bcrypt \
+    tcpdump \
     && rm -rf /var/lib/apt/lists/*
+
+# Usuarios sin privilegios para los ejercicios de permisos (A01, A06, A10)
+RUN useradd -m -s /bin/bash alumno \
+    && useradd -m -s /bin/bash docente
 
 WORKDIR /lab
 

@@ -1,0 +1,10 @@
+# Jaula de ejemplo para fail2ban (/etc/fail2ban/jail.local).
+# Bloquea con el firewall durante 10 minutos a la IP que falle 5 veces en 2 minutos.
+[lab-login]
+enabled  = true
+port     = 8007
+filter   = lab-login
+logpath  = /lab/A07_Authentication_Failures/auth.log
+maxretry = 5
+findtime = 120
+bantime  = 600
